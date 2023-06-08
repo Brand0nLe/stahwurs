@@ -8,6 +8,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TableComponent } from './components/table/table.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { HomePageComponentComponent } from './components/pages/home-page/home-page-component/home-page-component.component';
+import { HomePageComponent } from './components/pages/home-page/home-page.component';
+import { PeoplePageComponent } from './components/pages/people-page/people-page.component';
+import { PlanetsPageComponent } from './components/pages/planets-page/planets-page.component';
+import { StarshipsPageComponent } from './components/pages/starships-page/starships-page.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,12 @@ import { ModalComponent } from './components/modal/modal.component';
     HeaderComponent,
     FooterComponent,
     TableComponent,
-    ModalComponent
+    ModalComponent,
+    HomePageComponentComponent,
+    HomePageComponent,
+    PeoplePageComponent,
+    PlanetsPageComponent,
+    StarshipsPageComponent
   ],
   imports: [
     BrowserModule,
