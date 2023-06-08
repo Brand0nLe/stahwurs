@@ -1,6 +1,6 @@
 # Stahwurs 
 
-Stahwurds is an application built with Angular, Material UI, Tailwind CSS, and Angular Routing. It utilizes the Star Wars API (SWAPI) to fetch data about people, planets, and starships from the Star Wars universe. Users can search for specific items using a search bar, and the information will be displayed in a table format. Clicking on an item in the table will open a modal with additional details about that item.
+Stahwurs is an application built with Angular, Material UI, Tailwind CSS, and Angular Routing. It utilizes the Star Wars API (SWAPI) to fetch data about people, planets, and starships from the Star Wars universe. Users can search for specific items using a search bar, and the information will be displayed in a table format. Clicking on an item in the table will open a modal with additional details about that item.
 
 ## Deployment
 
