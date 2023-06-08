@@ -9,6 +9,7 @@ import { StarshipsPageComponent } from './components/pages/starships-page/starsh
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent },
   { path: 'people', component: PeoplePageComponent },
   { path: 'planets', component: PlanetsPageComponent },
   { path: 'starships', component: StarshipsPageComponent }

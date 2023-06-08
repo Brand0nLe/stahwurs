@@ -12,7 +12,8 @@ import { PeoplePageComponent } from './components/pages/people-page/people-page.
 import { PlanetsPageComponent } from './components/pages/planets-page/planets-page.component';
 import { StarshipsPageComponent } from './components/pages/starships-page/starships-page.component';
 
-
+import { MatTabsModule} from '@angular/material/tabs';
+ 
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { StarshipsPageComponent } from './components/pages/starships-page/starsh
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

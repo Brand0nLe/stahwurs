@@ -1,0 +1,9 @@
+.tabs {
+    display: inline-block;
+    background-color: none;
+    border-radius: 4px;
+    margin-top: 1em;
+}
+.active-link {
+    color: #F20B22!important;
+} 
