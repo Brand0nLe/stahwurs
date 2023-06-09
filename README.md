@@ -7,6 +7,8 @@ Stahwurs is an application built with Angular, Material UI, Tailwind CSS, and An
 The application is deployed on Azure and can be accessed using the following link:
 [In development...](https://urlgoeshere.azurewebsites.net/)
 
+Please note that the API calls from the star wars API take some time to load into the tables, so please be patient and wait on that page for the information to populate. I'm currently working on ways to create a better user experience.
+
 ## Features
 
 - Search functionality to find information about people, planets, and starships from the Star Wars universe
