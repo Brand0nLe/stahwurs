@@ -1,20 +1,18 @@
 <nav mat-tab-nav-bar>
     <a mat-tab-link 
        [routerLink]="['/home']" 
-       routerLinkActive #rla="routerLinkActive" 
-       [active]="rla.isActive">Home</a>
+       routerLinkActive #homeRla="routerLinkActive" 
+       [active]="homeRla.isActive">Home</a>
     <a mat-tab-link 
        [routerLink]="['/people']" 
-       routerLinkActive #rla="routerLinkActive" 
-       [active]="rla.isActive">People</a>
+       routerLinkActive #peopleRla="routerLinkActive" 
+       [active]="peopleRla.isActive">People</a>
     <a mat-tab-link 
        [routerLink]="['/planets']" 
-       routerLinkActive #rla="routerLinkActive" 
-       [active]="rla.isActive">Planets</a>
+       routerLinkActive #planetsRla="routerLinkActive" 
+       [active]="planetsRla.isActive">Planets</a>
     <a mat-tab-link 
        [routerLink]="['/starships']" 
-       routerLinkActive #rla="routerLinkActive" 
-       [active]="rla.isActive">Starships</a>
-  </nav>
-  <router-outlet></router-outlet>
-  
+       routerLinkActive #starshipsRla="routerLinkActive" 
+       [active]="starshipsRla.isActive">Starships</a>
+</nav>
