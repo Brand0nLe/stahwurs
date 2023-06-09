@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import { MatTabNavPanel } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-header',
