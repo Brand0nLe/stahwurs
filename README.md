@@ -34,7 +34,7 @@ To run this project, follow these steps:
 
 ## Disclaimer
 
-This project, Stahwurs, is a personal and educational endeavor. It uses the Star Wars API (https://swapi.dev/) to fetch and display data but is not affiliated with or endorsed by Lucasfilm Ltd. or any related companies. This project is purely for the purpose of practicing and developing skills in front-end development, with a focus on Angular and TypeScript. All data about people, planets, and starships is provided by the Star Wars API, and this application claims no ownership or responsibility for this data.
+This project, Stahwurs, is a personal and educational endeavor. It uses the Star Wars API (https://swapi.dev/) to fetch and display data but is not affiliated with or endorsed by Lucasfilm Ltd. or any related companies. This project is purely for the purpose of practicing and developing skills in front-end development, with a focus on Angular and TypeScript. All data is provided by the Star Wars API, and this application claims no ownership or responsibility for this data.
 
 ## Contact
 
