@@ -1,9 +1,6 @@
 .tabs {
-    display: inline-block;
+    display: inline;
     background-color: none;
     border-radius: 4px;
     margin-top: 1em;
 }
-.active-link {
-    color: #F20B22;
-} 

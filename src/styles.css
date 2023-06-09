@@ -1,15 +1,15 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    margin: auto;
-    padding: 2rem;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #ede7f6;
+  margin: auto;
+  padding: 2rem;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #ede7f6;
 }

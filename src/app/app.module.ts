@@ -12,8 +12,7 @@ import { PeoplePageComponent } from './components/pages/people-page/people-page.
 import { PlanetsPageComponent } from './components/pages/planets-page/planets-page.component';
 import { StarshipsPageComponent } from './components/pages/starships-page/starships-page.component';
 
-import { MatTabsModule} from '@angular/material/tabs';
- 
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -25,15 +24,15 @@ import { MatTabsModule} from '@angular/material/tabs';
     HomePageComponent,
     PeoplePageComponent,
     PlanetsPageComponent,
-    StarshipsPageComponent
+    StarshipsPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
