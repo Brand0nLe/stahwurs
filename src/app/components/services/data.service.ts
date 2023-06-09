@@ -1,12 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable, forkJoin, of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 export interface DataTableItem {
   name: string;
-  field1: string;
-  field2: string;
+  birth_year: string;
+  gender: string;
+  climate: string;
+  population: string;
+  model: string;
+  manufacturer: string;
 }
 
 @Injectable({
@@ -16,42 +20,39 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   fetchPeopleData(): Observable<DataTableItem[]> {
-    return this.http.get<{ results: any[] }>('https://swapi.dev/api/people/').pipe(
-      map(({ results }) =>
-        results.map((person: any) => ({
-          name: person.name,
-          field1: person.birth_year,
-          field2: person.gender
-        }) as DataTableItem)
-      ),
-      catchError(() => of([]))
-    );
+    return this.fetchAllPages('https://swapi.dev/api/people/');
   }
 
   fetchPlanetsData(): Observable<DataTableItem[]> {
-    return this.http.get<{ results: any[] }>('https://swapi.dev/api/planets/').pipe(
-      map(({ results }) =>
-        results.map((planet: any) => ({
-          name: planet.name,
-          field1: planet.climate,
-          field2: planet.population
-        }) as DataTableItem)
-      ),
-      catchError(() => of([]))
-    );
+    return this.fetchAllPages('https://swapi.dev/api/planets/');
   }
 
   fetchStarshipsData(): Observable<DataTableItem[]> {
-    return this.http.get<{ results: any[] }>('https://swapi.dev/api/starships/').pipe(
-      map(({ results }) =>
-        results.map((starship: any) => ({
-          name: starship.name,
-          field1: starship.model,
-          field2: starship.manufacturer
-        }))
-      ),
+    return this.fetchAllPages('https://swapi.dev/api/starships/');
+  }
+
+  private fetchAllPages(url: string): Observable<DataTableItem[]> {
+    return this.http.get<{ results: any[], next: string }>(url).pipe(
+      switchMap(({ results, next }) => {
+        const items = results.map((result: any) => ({
+          name: result.name,
+          birth_year: result.birth_year,
+          gender: result.gender,
+          climate: result.climate,
+          population: result.population,
+          model: result.model,
+          manufacturer: result.manufacturer
+        } as DataTableItem));
+
+        if (next) {
+          return this.fetchAllPages(next).pipe(
+            map((nextItems: DataTableItem[]) => [...items, ...nextItems])
+          );
+        } else {
+          return of(items);
+        }
+      }),
       catchError(() => of([]))
     );
   }
-  
 }

@@ -8,7 +8,7 @@ import { DataService, DataTableItem } from '../../services/data.service';
 })
 export class PlanetsPageComponent implements OnInit {
   planetsData: DataTableItem[] = [];
-  displayedColumns: string[] = ['name', 'field1', 'field2'];
+  displayedColumns: string[] = ['name', 'climate', 'population'];
 
   constructor(private dataService: DataService) { }
 
