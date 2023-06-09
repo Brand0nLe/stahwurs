@@ -48,9 +48,10 @@ export class DataService {
           name: starship.name,
           field1: starship.model,
           field2: starship.manufacturer
-        }) as DataTableItem)
+        }))
       ),
       catchError(() => of([]))
     );
   }
+  
 }

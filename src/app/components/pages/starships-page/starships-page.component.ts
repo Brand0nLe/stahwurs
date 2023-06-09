@@ -8,7 +8,7 @@ import { DataService, DataTableItem } from '../../services/data.service';
 })
 export class StarshipsPageComponent implements OnInit {
   starshipsData: DataTableItem[] = [];
-  displayedColumns: string[] = ['name', 'field1', 'field2'];
+  displayedColumns: string[] = ['name', 'model', 'manufacturer'];
 
   constructor(private dataService: DataService) { }
 
