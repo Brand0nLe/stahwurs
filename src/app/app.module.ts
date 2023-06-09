@@ -13,6 +13,9 @@ import { PlanetsPageComponent } from './components/pages/planets-page/planets-pa
 import { StarshipsPageComponent } from './components/pages/starships-page/starships-page.component';
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,16 @@ import { MatTabsModule } from '@angular/material/tabs';
     HomePageComponent,
     PeoplePageComponent,
     PlanetsPageComponent,
-    StarshipsPageComponent,
-  ],
+    StarshipsPageComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatTableModule,
+    MatSortModule, 
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

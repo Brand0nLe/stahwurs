@@ -1,8 +1,20 @@
-<nav mat-tab-nav-bar ngClass = "tabs">
-    <a mat-tab-link routerLink="/home" routerLinkActive="active-link">Home</a>
-    <a mat-tab-link routerLink="/people" routerLinkActive="active-link">People</a>
-    <a mat-tab-link routerLink="/planets" routerLinkActive="active-link">Planets</a>
-    <a mat-tab-link routerLink="/starships" routerLinkActive="active-link">Starships</a>
- </nav>  
- <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
-   <router-outlet></router-outlet>	
+<nav mat-tab-nav-bar>
+    <a mat-tab-link 
+       [routerLink]="['/home']" 
+       routerLinkActive #rla="routerLinkActive" 
+       [active]="rla.isActive">Home</a>
+    <a mat-tab-link 
+       [routerLink]="['/people']" 
+       routerLinkActive #rla="routerLinkActive" 
+       [active]="rla.isActive">People</a>
+    <a mat-tab-link 
+       [routerLink]="['/planets']" 
+       routerLinkActive #rla="routerLinkActive" 
+       [active]="rla.isActive">Planets</a>
+    <a mat-tab-link 
+       [routerLink]="['/starships']" 
+       routerLinkActive #rla="routerLinkActive" 
+       [active]="rla.isActive">Starships</a>
+  </nav>
+  <router-outlet></router-outlet>
+  
