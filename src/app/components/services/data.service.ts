@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 export interface DataTableItem {
   name: string;
@@ -15,26 +15,48 @@ export interface DataTableItem {
 export class DataService {
   constructor(private http: HttpClient) { }
 
-  fetchPeopleData(page: number = 1): Observable<DataTableItem[]> {
-    return this.http.get<{ results: any[] }>(`https://swapi.dev/api/people/?page=${page}`).pipe(
+  fetchPeopleData(): Observable<DataTableItem[]> {
+    return this.http.get<{ results: any[] }>('https://swapi.dev/api/people/').pipe(
       switchMap(({ results }) => {
         return forkJoin(
           results.map((person: any) =>
             forkJoin({
               name: of(person.name),
-              field1: forkJoin((person.species as string[]).map((url: string) => this.http.get<{ name: string }>(url))).pipe(
-                map(species => species.map((s: any) => s.name).join(', '))
-              ),
-              field2: this.http.get<{ name: string }>(person.homeworld).pipe(map(homeworld => homeworld.name)),
+              field1: this.fetchHomeworld(person.homeworld),
+              field2: this.fetchSpecies(person.species),
             })
           )
         );
-      }),
-      tap(data => console.log(data))
+      })
     );
   }
   
+  fetchHomeworld(url: string): Observable<string> {
+    return this.http.get<{ name: string }>(url).pipe(
+      map(homeworld => homeworld.name),
+      catchError(() => of('Unknown')) // Handle error if homeworld fetch fails
+    );
+  }
   
+  fetchSpecies(speciesUrls: string[]): Observable<string> {
+    if (speciesUrls.length === 0) {
+      return of('Unknown');
+    }
+  
+    return forkJoin(
+      speciesUrls.map((url: string) => this.http.get<{ name: string }>(url).pipe(
+        map(species => species.name),
+        catchError(() => of('Unknown')) // Handle error if species fetch fails
+      ))
+    ).pipe(
+      map(speciesNames => speciesNames.join(', '))
+    );
+  }
+
+
+
+
+
 
 
 
