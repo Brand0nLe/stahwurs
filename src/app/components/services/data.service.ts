@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 
-interface DataTableItem {
+export interface DataTableItem {
   name: string;
   field1: string;
   field2: string;
@@ -22,14 +22,18 @@ export class DataService {
           results.map((person: any) =>
             forkJoin({
               name: of(person.name),
-              field1: forkJoin((person.species as string[]).map((url: string) => this.http.get<{ name: string }>(url))).pipe(map(species => species.map((s: any) => s.name).join(', '))),
+              field1: forkJoin((person.species as string[]).map((url: string) => this.http.get<{ name: string }>(url))).pipe(
+                map(species => species.map((s: any) => s.name).join(', '))
+              ),
               field2: this.http.get<{ name: string }>(person.homeworld).pipe(map(homeworld => homeworld.name)),
             })
           )
         );
-      })
+      }),
+      tap(data => console.log(data))
     );
   }
+  
 
 
 
