@@ -8,7 +8,7 @@ import { DataService, DataTableItem } from '../../services/data.service';
 })
 export class PeoplePageComponent implements OnInit {
   peopleData: DataTableItem[] = [];
-  displayedColumns: string[] = ['name', 'field1', 'field2'];
+  displayedColumns: string[] = ['name', 'birth_year', 'gender'];
 
   constructor(private dataService: DataService) { }
 

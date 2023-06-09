@@ -17,24 +17,21 @@ export class DataService {
 
   fetchPeopleData(): Observable<DataTableItem[]> {
     return this.http.get<{ results: any[] }>('https://swapi.dev/api/people/').pipe(
-      switchMap(({ results }) => {
-        return forkJoin(
-          results.map((person: any) =>
-            forkJoin({
-              name: of(person.name),
-              field1: this.fetchHomeworld(person.homeworld),
-              field2: this.fetchSpecies(person.species),
-            })
-          )
-        );
-      })
+      map(({ results }) =>
+        results.map((person: any) => ({
+          name: person.name,
+          field1: person.birth_year,
+          field2: person.gender
+        }) as DataTableItem) 
+      ),
+      catchError(() => of([])) 
     );
   }
   
   fetchHomeworld(url: string): Observable<string> {
     return this.http.get<{ name: string }>(url).pipe(
       map(homeworld => homeworld.name),
-      catchError(() => of('Unknown')) // Handle error if homeworld fetch fails
+      catchError(() => of('Unknown')) 
     );
   }
   
