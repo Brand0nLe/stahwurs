@@ -17,7 +17,7 @@ The application is deployed on Azure and can be accessed using the following lin
 
 ## Technologies Used
 
-- Angular
+- Angular 16
 - Material UI
 - Tailwind CSS
 - Angular Routing
