@@ -11,7 +11,6 @@ import { HomePageComponent } from './components/pages/home-page/home-page.compon
 import { PeoplePageComponent } from './components/pages/people-page/people-page.component';
 import { PlanetsPageComponent } from './components/pages/planets-page/planets-page.component';
 import { StarshipsPageComponent } from './components/pages/starships-page/starships-page.component';
-
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';

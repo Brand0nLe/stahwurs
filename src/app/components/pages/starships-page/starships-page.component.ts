@@ -4,16 +4,16 @@ import { DataService, DataTableItem } from '../../services/data.service';
 @Component({
   selector: 'app-starships-page',
   templateUrl: './starships-page.component.html',
-  styleUrls: ['./starships-page.component.css']
+  styleUrls: ['./starships-page.component.css'],
 })
 export class StarshipsPageComponent implements OnInit {
   starshipsData: DataTableItem[] = [];
   displayedColumns: string[] = ['name', 'model', 'manufacturer'];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.fetchStarshipsData().subscribe(data => {
+    this.dataService.fetchStarshipsData().subscribe((data) => {
       this.starshipsData = data;
     });
   }

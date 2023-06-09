@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 export interface DataTableItem {
@@ -14,10 +14,10 @@ export interface DataTableItem {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   fetchPeopleData(): Observable<DataTableItem[]> {
     return this.fetchAllPages('https://swapi.dev/api/people/');
@@ -32,17 +32,20 @@ export class DataService {
   }
 
   private fetchAllPages(url: string): Observable<DataTableItem[]> {
-    return this.http.get<{ results: any[], next: string }>(url).pipe(
+    return this.http.get<{ results: any[]; next: string }>(url).pipe(
       switchMap(({ results, next }) => {
-        const items = results.map((result: any) => ({
-          name: result.name,
-          birth_year: result.birth_year,
-          gender: result.gender,
-          climate: result.climate,
-          population: result.population,
-          model: result.model,
-          manufacturer: result.manufacturer
-        } as DataTableItem));
+        const items = results.map(
+          (result: any) =>
+            ({
+              name: result.name,
+              birth_year: result.birth_year,
+              gender: result.gender,
+              climate: result.climate,
+              population: result.population,
+              model: result.model,
+              manufacturer: result.manufacturer,
+            } as DataTableItem)
+        );
 
         if (next) {
           return this.fetchAllPages(next).pipe(
