@@ -16,7 +16,12 @@ import { DataTableItem } from '../services/data.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
 })
+
+
 export class TableComponent implements AfterViewInit, OnChanges, OnInit {
+
+
+
   @Input() data: DataTableItem[] = [];
   @Input() displayedColumns: string[] = [];
 
