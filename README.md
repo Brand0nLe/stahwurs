@@ -20,7 +20,6 @@ The application is deployed on Azure and can be accessed using the following lin
 - Angular 16
 - Material UI
 - Tailwind CSS
-- Angular Routing
 - RESTful API: Star Wars API (https://swapi.dev/)
 
 ## Setup
