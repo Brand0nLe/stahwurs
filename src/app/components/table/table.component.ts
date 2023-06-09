@@ -1,29 +1,22 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
-interface DataTableItem {
-  name: string;
-  field1: string;
-  field2: string;
-}
+import { DataTableItem } from '../services/data.service';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent {
-  @Input() set data(value: DataTableItem[]) {
-    this.dataSource.data = value;
-  }
+export class TableComponent implements AfterViewInit {
+  @Input() data: DataTableItem[] = [];
+  @Input() displayedColumns: string[] = [];
 
-  displayedColumns: string[] = ['name', 'field1', 'field2'];
-  dataSource = new MatTableDataSource<DataTableItem>();
+  dataSource = new MatTableDataSource<DataTableItem>(this.data);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 }
