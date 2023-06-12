@@ -10,15 +10,18 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataTableItem } from '../services/data.service';
-import { ModalComponent } from '../modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements AfterViewInit, OnChanges, OnInit {
+
   constructor(private dialog: MatDialog) {}
+
 
   @Input() data: DataTableItem[] = [];
   @Input() displayedColumns: string[] = [];
@@ -40,4 +43,13 @@ export class TableComponent implements AfterViewInit, OnChanges, OnInit {
       this.dataSource.data = this.data;
     }
   }
+
+
+  openModal(name: string): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: { name }, 
+    });
+  }
+
+  
 }

@@ -1,8 +1,16 @@
-<!-- 
-<div class="modal-overlay">
-  <div class="modal-container">
-    <h2 class="text-2xl font-bold">{{ data.name }}</h2>
-    <p>Birth Year: {{ data.birth_year }}</p>
-    <p>Gender: {{ data.gender }}</p>
-  </div>
-</div> -->
+<div *ngIf="additionalData">
+  <h3>{{ additionalData.name }}</h3>
+
+  <!-- Display additional properties based on the fetch category -->
+  <ng-container *ngIf="data.fetchCategory === 'people'">
+    <p>Birth Year: {{ additionalData.birth_year }}</p>
+    <p>Gender: {{ additionalData.gender }}</p>
+    <!-- Additional properties for people -->
+  </ng-container>
+  <ng-container *ngIf="data.fetchCategory === 'planets'">
+    <!-- Additional properties for planets -->
+  </ng-container>
+  <ng-container *ngIf="data.fetchCategory === 'starships'">
+    <!-- Additional properties for starships -->
+  </ng-container>
+</div>
