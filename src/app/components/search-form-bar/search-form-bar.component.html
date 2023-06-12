@@ -1,1 +1,9 @@
-<p>search-form-bar works!</p>
+<div>
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Search term" class="form-input">
+    <select [(ngModel)]="searchCategory" class="form-select">
+      <option value="people">People</option>
+      <option value="planets">Planets</option>
+      <option value="starships">Starships</option>
+    </select>
+    <button (click)="onSearch()" class="btn">Search</button>
+  </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-form-bar',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-form-bar.component.css']
 })
 export class SearchFormBarComponent {
+  @Output() search = new EventEmitter<string>();
 
+  searchTerm: string = '';
+  searchCategory: string = 'people';
+
+  onSearch(): void {
+    const filterValue = `${this.searchCategory},${this.searchTerm}`;
+    this.search.emit(filterValue);
+}
 }

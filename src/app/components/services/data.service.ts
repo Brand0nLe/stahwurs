@@ -31,6 +31,31 @@ export class DataService {
     return this.fetchAllPages('https://swapi.dev/api/starships/');
   }
 
+
+
+// calls for search bar
+
+searchPeopleByName(name: string): Observable<any> {
+  const url = `https://swapi.dev/api/people/?search=${name}`;
+  return this.http.get<any>(url);
+}
+
+searchPlanetsByName(name: string): Observable<any> {
+  const url = `https://swapi.dev/api/planets/?search=${name}`;
+  return this.http.get<any>(url);
+}
+
+searchStarshipsByName(name: string): Observable<any> {
+  const url = `https://swapi.dev/api/starships/?search=${name}`;
+  return this.http.get<any>(url);
+}
+
+// end calls for search bar
+
+
+
+
+
   private fetchAllPages(url: string): Observable<DataTableItem[]> {
     return this.http.get<{ results: any[]; next: string }>(url).pipe(
       switchMap(({ results, next }) => {
