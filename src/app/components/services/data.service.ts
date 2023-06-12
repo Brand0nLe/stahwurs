@@ -15,9 +15,18 @@ export interface DataTableItem {
 
   climate: string;
   population: string;
+  diameter: string;
+  gravity: string;
+  surface_water: string;
+  terrain: string;
 
   model: string;
   manufacturer: string;
+  starship_class: string;
+  cost_in_credits: string;
+  length: string;
+  hyperdrive_rating: string;
+
 }
 
 @Injectable({

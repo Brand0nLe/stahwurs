@@ -20,16 +20,22 @@
 
 
 
-
       <p *ngIf="searchCategory === 'planets'">Climate: {{ result.climate }}</p>
       <p *ngIf="searchCategory === 'planets'">Population: {{ result.population }}</p>
+      <p *ngIf="searchCategory === 'planets'">Diameter: {{ result.diameter }}</p>
+      <p *ngIf="searchCategory === 'planets'">Gravity: {{ result.gravity }}</p>
+      <p *ngIf="searchCategory === 'planets'">Surface Water: {{ result.surface_water }}</p>
+      <p *ngIf="searchCategory === 'planets'">Terrain: {{ result.terrain }}</p>
 
 
 
 
       <p *ngIf="searchCategory === 'starships'">Model: {{ result.model }}</p>
+      <p *ngIf="searchCategory === 'starships'">Starship Class: {{ result.starship_class }}</p>
       <p *ngIf="searchCategory === 'starships'">Manufacturer: {{ result.manufacturer }}</p>
-      <!-- Add more properties as needed -->
+      <p *ngIf="searchCategory === 'starships'">Cost in Credits: {{ result.cost_in_credits }}</p>
+      <p *ngIf="searchCategory === 'starships'">Length: {{ result.length }}</p>
+      <p *ngIf="searchCategory === 'starships'">Hyperdrive Rating: {{ result.hyperdrive_rating }}</p>
     </li>
   </ul>
 </div>
