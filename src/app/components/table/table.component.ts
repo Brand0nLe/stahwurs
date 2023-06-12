@@ -16,12 +16,7 @@ import { DataTableItem } from '../services/data.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
 })
-
-
 export class TableComponent implements AfterViewInit, OnChanges, OnInit {
-
-
-
   @Input() data: DataTableItem[] = [];
   @Input() displayedColumns: string[] = [];
 
@@ -36,7 +31,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnInit {
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
-
+  
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data']) {
       this.dataSource.data = this.data;

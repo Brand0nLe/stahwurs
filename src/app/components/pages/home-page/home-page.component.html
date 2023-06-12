@@ -8,10 +8,25 @@
   <ul class="space-y-4">
     <li *ngFor="let result of searchResults" class="p-4 border border-gray-300 bg-gray-100">
       <p class="font-semibold">Name: {{ result.name }}</p>
+
+
+
       <p *ngIf="searchCategory === 'people'">Birth Year: {{ result.birth_year }}</p>
       <p *ngIf="searchCategory === 'people'">Gender: {{ result.gender }}</p>
+      <p *ngIf="searchCategory === 'people'">Height: {{ result.height }}</p>
+      <p *ngIf="searchCategory === 'people'">Mass: {{ result.mass }}</p>
+      <p *ngIf="searchCategory === 'people'">Hair Color: {{ result.hair_color }}</p>
+      <p *ngIf="searchCategory === 'people'">Skin Color: {{ result.skin_color }}</p>
+
+
+
+
       <p *ngIf="searchCategory === 'planets'">Climate: {{ result.climate }}</p>
       <p *ngIf="searchCategory === 'planets'">Population: {{ result.population }}</p>
+
+
+
+
       <p *ngIf="searchCategory === 'starships'">Model: {{ result.model }}</p>
       <p *ngIf="searchCategory === 'starships'">Manufacturer: {{ result.manufacturer }}</p>
       <!-- Add more properties as needed -->

@@ -1,21 +1,27 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <mat-form-field appearance="fill">
-      <mat-icon matPrefix>search</mat-icon>
-      <input matInput type="text" [(ngModel)]="searchTerm" placeholder="Search Term">
-    </mat-form-field>
+<mat-toolbar color="primary" class="mb-4">
+  <mat-toolbar-row class="flex flex-col md:flex-row items-center">
+    <div class="mb-2 md:mb-0 md:mr-4">
+      <mat-form-field appearance="fill">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="text" [(ngModel)]="searchTerm" placeholder="Search Term" class="w-full">
+      </mat-form-field>
+    </div>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Search Category</mat-label>
-      <mat-select [(ngModel)]="searchCategory" (selectionChange)="onCategoryChange()">
-        <mat-option value="people">People</mat-option>
-        <mat-option value="planets">Planets</mat-option>
-        <mat-option value="starships">Starships</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="mb-2 md:mb-0 md:mr-4">
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a Category</mat-label>
+        <mat-select [(ngModel)]="searchCategory" (selectionChange)="onCategoryChange()" class="w-full">
+          <mat-option value="people">People</mat-option>
+          <mat-option value="planets">Planets</mat-option>
+          <mat-option value="starships">Starships</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-    <button mat-icon-button (click)="onSearch()">
-      <mat-icon>search</mat-icon>
-    </button>
+    <div class="flex justify-center md:justify-start">
+      <button mat-icon-button (click)="onSearch()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>

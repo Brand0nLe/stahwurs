@@ -5,10 +5,17 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 
 export interface DataTableItem {
   name: string;
+
   birth_year: string;
   gender: string;
+  height: string;
+  mass: string;
+  hair_color: string;
+  skin_color: string;
+
   climate: string;
   population: string;
+
   model: string;
   manufacturer: string;
 }
@@ -19,44 +26,38 @@ export interface DataTableItem {
 export class DataService {
   constructor(private http: HttpClient) {}
 
+  // calls for search bar
+
+  searchPeopleByName(name: string): Observable<any> {
+    const url = `https://swapi.dev/api/people/?search=${name}`;
+    return this.http.get<any>(url);
+  }
+
+  searchPlanetsByName(name: string): Observable<any> {
+    const url = `https://swapi.dev/api/planets/?search=${name}`;
+    return this.http.get<any>(url);
+  }
+
+  searchStarshipsByName(name: string): Observable<any> {
+    const url = `https://swapi.dev/api/starships/?search=${name}`;
+    return this.http.get<any>(url);
+  }
+
+  // end calls for search bar
+
   fetchPeopleData(): Observable<DataTableItem[]> {
-    return this.fetchAllPages('https://swapi.dev/api/people/');
+    return this.fetchPage('https://swapi.dev/api/people/');
   }
 
   fetchPlanetsData(): Observable<DataTableItem[]> {
-    return this.fetchAllPages('https://swapi.dev/api/planets/');
+    return this.fetchPage('https://swapi.dev/api/planets/');
   }
 
   fetchStarshipsData(): Observable<DataTableItem[]> {
-    return this.fetchAllPages('https://swapi.dev/api/starships/');
+    return this.fetchPage('https://swapi.dev/api/starships/');
   }
 
-
-
-// calls for search bar
-
-searchPeopleByName(name: string): Observable<any> {
-  const url = `https://swapi.dev/api/people/?search=${name}`;
-  return this.http.get<any>(url);
-}
-
-searchPlanetsByName(name: string): Observable<any> {
-  const url = `https://swapi.dev/api/planets/?search=${name}`;
-  return this.http.get<any>(url);
-}
-
-searchStarshipsByName(name: string): Observable<any> {
-  const url = `https://swapi.dev/api/starships/?search=${name}`;
-  return this.http.get<any>(url);
-}
-
-// end calls for search bar
-
-
-
-
-
-  private fetchAllPages(url: string): Observable<DataTableItem[]> {
+  private fetchPage(url: string): Observable<DataTableItem[]> {
     return this.http.get<{ results: any[]; next: string }>(url).pipe(
       switchMap(({ results, next }) => {
         const items = results.map(
@@ -73,7 +74,7 @@ searchStarshipsByName(name: string): Observable<any> {
         );
 
         if (next) {
-          return this.fetchAllPages(next).pipe(
+          return this.fetchPage(next).pipe(
             map((nextItems: DataTableItem[]) => [...items, ...nextItems])
           );
         } else {
