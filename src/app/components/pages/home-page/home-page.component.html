@@ -1,1 +1,20 @@
-<app-search-form-bar></app-search-form-bar>
+<app-search-form-bar
+  (search)="handleSearchResults($event)"
+  (categoryChange)="handleCategoryChange($event)"
+></app-search-form-bar>
+
+<div *ngIf="searchResults.length > 0" class="mt-8">
+  <h2 class="text-xl font-bold mb-4">Search Results</h2>
+  <ul class="space-y-4">
+    <li *ngFor="let result of searchResults" class="p-4 border border-gray-300 bg-gray-100">
+      <p class="font-semibold">Name: {{ result.name }}</p>
+      <p *ngIf="searchCategory === 'people'">Birth Year: {{ result.birth_year }}</p>
+      <p *ngIf="searchCategory === 'people'">Gender: {{ result.gender }}</p>
+      <p *ngIf="searchCategory === 'planets'">Climate: {{ result.climate }}</p>
+      <p *ngIf="searchCategory === 'planets'">Population: {{ result.population }}</p>
+      <p *ngIf="searchCategory === 'starships'">Model: {{ result.model }}</p>
+      <p *ngIf="searchCategory === 'starships'">Manufacturer: {{ result.manufacturer }}</p>
+      <!-- Add more properties as needed -->
+    </li>
+  </ul>
+</div>

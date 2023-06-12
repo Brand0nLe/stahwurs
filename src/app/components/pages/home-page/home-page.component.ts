@@ -7,11 +7,16 @@ import { DataService, DataTableItem } from '../../services/data.service';
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent {
+  searchCategory: string = 'people';
   searchResults: DataTableItem[] = [];
 
   constructor(private dataService: DataService) {}
 
   handleSearchResults(results: DataTableItem[]): void {
     this.searchResults = results;
+  }
+
+  handleCategoryChange(category: string): void {
+    this.searchCategory = category;
   }
 }

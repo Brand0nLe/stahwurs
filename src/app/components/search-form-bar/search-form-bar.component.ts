@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService, DataTableItem } from '../services/data.service';
 
 @Component({
   selector: 'app-search-form-bar',
@@ -7,7 +7,8 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./search-form-bar.component.css']
 })
 export class SearchFormBarComponent {
-  @Output() search = new EventEmitter<string>();
+  @Output() search = new EventEmitter<DataTableItem[]>();
+  @Output() categoryChange = new EventEmitter<string>();
 
   searchTerm: string = '';
   searchCategory: string = 'people';
@@ -17,16 +18,23 @@ export class SearchFormBarComponent {
   onSearch(): void {
     if (this.searchCategory === 'people') {
       this.dataService.searchPeopleByName(this.searchTerm).subscribe((data: any) => {
-        this.search.emit(data.results);
+        const searchResults: DataTableItem[] = data.results;
+        this.search.emit(searchResults);
       });
     } else if (this.searchCategory === 'planets') {
       this.dataService.searchPlanetsByName(this.searchTerm).subscribe((data: any) => {
-        this.search.emit(data.results);
+        const searchResults: DataTableItem[] = data.results;
+        this.search.emit(searchResults);
       });
     } else if (this.searchCategory === 'starships') {
       this.dataService.searchStarshipsByName(this.searchTerm).subscribe((data: any) => {
-        this.search.emit(data.results);
+        const searchResults: DataTableItem[] = data.results;
+        this.search.emit(searchResults);
       });
     }
+  }
+
+  onCategoryChange(): void {
+    this.categoryChange.emit(this.searchCategory);
   }
 }

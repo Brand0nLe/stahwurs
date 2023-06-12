@@ -1,9 +1,21 @@
-<div>
-    <input type="text" [(ngModel)]="searchTerm" placeholder="Search term" class="form-input">
-    <select [(ngModel)]="searchCategory" class="form-select">
-      <option value="people">People</option>
-      <option value="planets">Planets</option>
-      <option value="starships">Starships</option>
-    </select>
-    <button (click)="onSearch()" class="btn">Search</button>
-  </div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <mat-form-field appearance="fill">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput type="text" [(ngModel)]="searchTerm" placeholder="Search Term">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Search Category</mat-label>
+      <mat-select [(ngModel)]="searchCategory" (selectionChange)="onCategoryChange()">
+        <mat-option value="people">People</mat-option>
+        <mat-option value="planets">Planets</mat-option>
+        <mat-option value="starships">Starships</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-icon-button (click)="onSearch()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
