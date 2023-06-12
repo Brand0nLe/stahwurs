@@ -27,6 +27,8 @@ export class TableComponent implements AfterViewInit, OnChanges, OnInit {
 
   @Input() data: DataTableItem[] = [];
   @Input() displayedColumns: string[] = [];
+  @Input() fetchCategory: string = '';
+
 
   dataSource = new MatTableDataSource<DataTableItem>();
 
@@ -49,7 +51,7 @@ export class TableComponent implements AfterViewInit, OnChanges, OnInit {
 
   openModal(name: string): void {
     const dialogRef = this.dialog.open(ModalComponent, {
-      data: { name }, 
+      data: { name, fetchCategory: this.fetchCategory },
     });
   }
 

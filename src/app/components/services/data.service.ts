@@ -4,6 +4,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 export interface DataTableItem {
+  fetchCategory: string;
+
   name: string;
 
   birth_year: string;

@@ -1,22 +1,21 @@
-<div *ngIf="additionalData">
-  <h3>{{ additionalData.name }}</h3>
+<div *ngIf="additionalData" class="fixed inset-0 flex items-center justify-center">
+  <div class="bg-white p-4 rounded shadow">
+    <h3 class="text-xl font-bold">{{ additionalData.name }}</h3>
 
-  <!-- Display additional properties based on the fetch category -->
-  <ng-container *ngIf="data.fetchCategory === 'people'">
-    <p>Birth Year: {{ additionalData.birth_year }}</p>
-    <p>Gender: {{ additionalData.gender }}</p>
-    <!-- Additional properties for people -->
-  </ng-container>
+    <ng-container *ngIf="data.fetchCategory === 'people'">
+      <p class="mt-2">Birth Year: {{ additionalData.birth_year }}</p>
+      <p class="mt-2">Gender: {{ additionalData.gender }}</p>
+    </ng-container>
 
-  <ng-container *ngIf="data.fetchCategory === 'planets'">
-    <p>Climate: {{ additionalData.climate }}</p>
-    <p>Population: {{ additionalData.population }}</p>
-    <!-- Additional properties for planets -->
-  </ng-container>
+    <ng-container *ngIf="data.fetchCategory === 'planets'">
+      <p class="mt-2">Climate: {{ additionalData.climate }}</p>
+      <p class="mt-2">Population: {{ additionalData.population }}</p>
+    </ng-container>
 
-  <ng-container *ngIf="data.fetchCategory === 'starships'">
-    <p>Model: {{ additionalData.model }}</p>
-    <p>Manufacturer: {{ additionalData.manufacturer }}</p>
-    <!-- Additional properties for starships -->
-  </ng-container>
+    <ng-container *ngIf="data.fetchCategory === 'starships'">
+      <p class="mt-2">Model: {{ additionalData.model }}</p>
+      <p class="mt-2">Manufacturer: {{ additionalData.manufacturer }}</p>
+    </ng-container>
+
+  </div>
 </div>
