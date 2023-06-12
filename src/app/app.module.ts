@@ -16,6 +16,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchFormBarComponent } from './components/assets/search-form-bar/search-form-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     PeoplePageComponent,
     PlanetsPageComponent,
     StarshipsPageComponent,
+    SearchFormBarComponent,
   ],
   imports: [
     BrowserModule,

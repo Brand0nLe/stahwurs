@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProgressBarComponent } from './progress-bar.component';
+import { SearchFormBarComponent } from './search-form-bar.component';
 
-describe('ProgressBarComponent', () => {
-  let component: ProgressBarComponent;
-  let fixture: ComponentFixture<ProgressBarComponent>;
+describe('SearchFormBarComponent', () => {
+  let component: SearchFormBarComponent;
+  let fixture: ComponentFixture<SearchFormBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProgressBarComponent ]
+      declarations: [ SearchFormBarComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProgressBarComponent);
+    fixture = TestBed.createComponent(SearchFormBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
