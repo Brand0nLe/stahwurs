@@ -9,17 +9,18 @@ import { DataService, DataTableItem } from '../services/data.service';
 })
 export class ModalComponent implements OnInit {
   additionalData: DataTableItem | undefined;
-
-  fetchCategoryMap: { [category: string]: (name: string) => void } = {
-    people: this.fetchPeopleData.bind(this),
-    planets: this.fetchPlanetsData.bind(this),
-    starships: this.fetchStarshipsData.bind(this)
-  };
+  fetchCategoryMap: { [category: string]: (name: string) => void } = {};
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { name: string, fetchCategory: string },
     private dataService: DataService
-  ) {}
+  ) {
+    this.fetchCategoryMap = {
+      people: this.fetchPeopleData.bind(this),
+      planets: this.fetchPlanetsData.bind(this),
+      starships: this.fetchStarshipsData.bind(this)
+    };
+  }
 
   ngOnInit(): void {
     const fetchFunction = this.fetchCategoryMap[this.data.fetchCategory];

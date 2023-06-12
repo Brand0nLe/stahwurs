@@ -12,6 +12,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DataTableItem } from '../services/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-table',
