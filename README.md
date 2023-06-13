@@ -14,8 +14,8 @@ Please note that the API calls from the star wars API take some time to load int
 - Search functionality to find information about people, planets, and starships from the Star Wars universe
 - Display of item details in a table format
 - Modal pop-up with additional information when clicking on an item
-- Randomized information about the Star Wars films on the home page
-- Specific randomizer buttons on each page for related API calls
+<!-- - Randomized information about the Star Wars films on the home page
+- Specific randomizer buttons on each page for related API calls -->
 
 ## Technologies Used
 
