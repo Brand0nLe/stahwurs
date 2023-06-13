@@ -20,7 +20,7 @@ Please note that the API calls from the star wars API take some time to load int
 ## Technologies Used
 
 - Angular 16
-- Material UI
+- Angular Material
 - Tailwind CSS
 - RESTful API: Star Wars API (https://swapi.dev/)
 
